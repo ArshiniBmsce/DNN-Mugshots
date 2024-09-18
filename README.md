@@ -4,7 +4,7 @@
 
 ## Reseach Paper Link
 
-![Evaluating Deep Neural Networks for Face Recognition with Different Subsets of Mugshots From the Photo-Signaling Procedure](https://ieeexplore.ieee.org/abstract/document/10405736)
+[Evaluating Deep Neural Networks for Face Recognition with Different Subsets of Mugshots From the Photo-Signaling Procedure](https://ieeexplore.ieee.org/abstract/document/10405736)
 
 ## Overview
 
