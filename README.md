@@ -1,6 +1,6 @@
 # Pose-Invariant Face Recognition Using VGG16 and ResNet50 on FRMDB
 
-![Face Recognition](https://img.icons8.com/ios/50/000000/face-id.png) ![Deep Learning](https://img.icons8.com/ios-filled/50/000000/neural-network.png) ![CNN](https://img.icons8.com/ios-filled/50/000000/artificial-intelligence.png)
+![Face Recognition](https://img.icons8.com/ios/50/000000/face-id.png) ![Deep Learning](https://img.icons8.com/?size=100&id=cLRMWz67wQli&format=png&color=000000) ![CNN](https://img.icons8.com/ios-filled/50/000000/artificial-intelligence.png)
 
 ## Reseach Paper Link
 
