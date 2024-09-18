@@ -1,39 +1,61 @@
-# Pose-Invariant Face Recognition with VGG16 and ResNet50 on FRMDB
+# Pose-Invariant Face Recognition Using VGG16 and ResNet50 on FRMDB
 
 ![Face Recognition](https://img.icons8.com/ios/50/000000/face-id.png) ![Deep Learning](https://img.icons8.com/ios-filled/50/000000/neural-network.png) ![CNN](https://img.icons8.com/ios-filled/50/000000/artificial-intelligence.png)
 
+## Reseach Paper Link
+
+![Evaluating Deep Neural Networks for Face Recognition with Different Subsets of Mugshots From the Photo-Signaling Procedure](https://ieeexplore.ieee.org/abstract/document/10405736)
+
 ## Overview
 
-This project aims to address a common challenge in **Face Recognition** technology: identifying faces from various angles, particularly in real-world environments like security camera footage. While traditional systems work well with clear, front-facing images, recognizing faces in different poses remains a complex problem.
+This project focuses on addressing a key challenge in **Face Recognition**—recognizing faces from different angles (Pose-Invariant Face Recognition or PIFR). The models commonly excel with front-facing images but struggle in real-world conditions, such as security footage where faces are seen from various perspectives.
 
-To solve this, we compare two popular deep learning models:
+### Key Facts:
+- **Dataset**: We used the **Face Recognition from Mugshots DataBase (FRMDB)**, a specialized dataset that contains mugshots captured from multiple angles.
+- **CNN Models**: We evaluated two popular Convolutional Neural Networks (CNNs):
+  - **VGG16**: A 16-layer model pre-trained on the VGGFace dataset.
+  - **ResNet50**: A 50-layer model that uses residual connections and is pre-trained on VGGFace2.
+  
+## Experimental Setup
 
-- **VGG16** ![VGG16](https://img.icons8.com/color/48/000000/vgg16.png)
-- **ResNet50** ![ResNet50](https://img.icons8.com/color/48/000000/resnet50.png)
+### Mugshots Dataset:
 
-We evaluate these models using a specialized dataset called **FRMDB** (Face Recognition from Mugshots DataBase).
+- **Subjects**: The FRMDB dataset includes 39 subjects from previous work and 28 new subjects.
+- **Mugshots**: Each subject has **28 mugshots** taken from multiple horizontal and vertical angles.
+- **Security Footage**: 
+  - **Low-resolution**: 5 videos per subject.
+  - **High-resolution**: 3 videos per new subject, 1920 x 1080 pixels.
+  
+We evaluated face recognition by testing multiple **subsets of mugshots**, including:
+  - **Test F**: Only the frontal image.
+  - **Test F-L1-R1**: Frontal, left, and right nearest-to-frontal images.
+  - **Test 1**: Frontal and right profile image, mimicking traditional police photo-signaling.
+  - **Test 6**: The full set of 28 mugshots.
 
----
-
-## Key Points
-
-1. **Pose-Invariant Face Recognition (PIFR)** is crucial in real-world scenarios, especially for video footage from security cameras.
-   
-2. Current systems excel in recognizing clear, front-facing images (e.g., for **smartphone unlocking** or **passport verification**) but struggle with different angles or "in-the-wild" conditions.
-
-3. **FRMDB** provides a unique dataset with mugshots from multiple angles, not just the standard front and right-profile views used in police databases.
-
-4. We compare the performance of **VGG16** and **ResNet50**, two widely used **Convolutional Neural Networks (CNNs)**, in recognizing faces from different subsets of mugshots.
-
-5. **Experiment Expansion**: We've expanded our testing beyond previous research, including more identities and additional security camera footage for a more comprehensive evaluation.
-
----
+### Evaluation Metrics:
+We calculated accuracy based on the model's ability to identify the correct person in:
+- **Top-1**: The most similar mugshot or identity.
+- **Top-3, Top-5, Top-10**: The person is found within the top 3, 5, or 10 ranked results.
 
 ## Results
 
-By analyzing the performance of VGG16 and ResNet50 on different angles of mugshots, we aim to find the most effective model for **Pose-Invariant Face Recognition** in security applications.
+### VGG16 vs. ResNet50 Performance:
 
-- **VGG16** is known for its simplicity and strong performance on large datasets.
-- **ResNet50** introduces residual connections that help with deeper network learning and is highly effective in feature extraction.
+1. **Top-1 Accuracy**:
+   - **VGG16**: Achieved **55.7% accuracy** on the new high-resolution dataset (Test 6).
+   - **ResNet50**: Reached **62.2% accuracy**, outperforming VGG16.
+   
+2. **Top-3 Accuracy**:
+   - **VGG16**: **75.7%** when using the full set of mugshots (Test 6).
+   - **ResNet50**: **75.1%**, slightly lower than VGG16.
+
+3. **Top-10 Accuracy**:
+   - **VGG16**: Achieved **95% accuracy** on the new subjects.
+   - **ResNet50**: Maintained an accuracy of **92.0%**, showing consistent performance.
+
+### Summary of Findings:
+- Both VGG16 and ResNet50 performed best when using the **full set of 28 mugshots**, improving accuracy significantly compared to subsets with fewer angles.
+- ResNet50 outperformed VGG16 in **Top-1 accuracy** across both low- and high-resolution footage, indicating better feature extraction capabilities in more challenging conditions.
+- Using only frontal and profile images (as in **Test 1**) resulted in the **lowest accuracy**, confirming that diverse angles improve the robustness of face recognition models.
 
 ---
